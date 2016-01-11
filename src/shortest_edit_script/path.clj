@@ -9,7 +9,7 @@
   [xs (rest ys) (conj path :down)])
 
 (defn- move-cross [[xs ys path :as envelope]]  
-  (if (and (not (empty? xs)) (= (first xs) (first ys)))
+  (if (and (not= xs ys []) (= (first xs) (first ys)))
     (recur [(rest xs) (rest ys) (conj path :cross)])
     envelope))
 
@@ -35,4 +35,5 @@
 
 (defn shortest-path [xs ys]
   (first (filter not-empty (mapcat to-solution
-                            (path-stream xs ys)))))
+                                   (path-stream xs ys)))))
+

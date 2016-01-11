@@ -25,3 +25,4 @@
   (testing "is able to find proper shortest change path"
     (is (= [:right :right :cross :down :cross :cross :right :cross :down]
            (shortest-path ["A" "B" "C" "A" "B" "B" "A"] ["C" "B" "A" "B" "A" "C"])))))
+
